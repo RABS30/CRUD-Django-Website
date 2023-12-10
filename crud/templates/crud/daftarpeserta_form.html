@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content1 %}
+<form action="" method="POST">
+    <table>
+    {% csrf_token %}
+    {{form.as_p}}
+    </table>
+    <button class="btn btn-primary" type="submit">Tambah</button>
+</form>
+{% endblock content1 %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content1 %}
+<br>
+<center><h1>DAFTAR PESERTA</h1></center>
+<br>
+{% comment %} Form Data Peserta {% endcomment %}
+<table class="table table-bordered">
+    <thead>
+      <tr class="text-center">
+        <th  scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Sekolah</th>
+        <th scope="col">Jurusan</th>
+        <th scope="col">No HP</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">Edit</th>
+
+      </tr>
+    </thead>
+    
+    {% for object in object_list %}
+    <tbody>
+      <tr>
+        <th class="text-center" scope="row">{{forloop.counter}}</th>
+        <td>{{object.nama}}</td>
+        <td>{{object.sekolah}}</td>
+        <td>{{object.jurusan}}</td>
+        <td>{{object.hp}}</td>
+        <td>{{object.alamat}}</td>
+        <td class="text-center">
+          <a href="{% url "update" object.pk%}"><button type="button" class="btn btn-warning">Edit</button></a>
+          <a href="{% url "delete" object.pk%}"><button type="button" class="btn btn-danger">Hapus</button></a>
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  <a class="nav-link text-light" href="{% url "daftar" %}"><button class="btn btn-primary">Tambah Peserta</button></a>
+{% comment %} ================= {% endcomment %}
+{% endblock content1 %}
+
+
